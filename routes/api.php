@@ -43,5 +43,9 @@ Route::middleware('auth:api')->group(function(){
         Route::put('users/{id}', [UserController::class, 'update'])->name('users.update');
         Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     });
+
+    Route::group(['prefix' => 'preprocessing'], function () {
+        Route::post('', [PreProcessingController::class, 'store'])->name('preprocessing.store');
+    });
 });
 
