@@ -1,5 +1,5 @@
 
-# GP Backend
+# ERP Backend
 
 ## Intro
 This Repo is for ASU GP Backend.
