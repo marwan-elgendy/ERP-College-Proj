@@ -2,7 +2,7 @@
 # ERP Backend
 
 ## Intro
-This Repo is for ASU GP Backend.
+This Repo is for ASU ERP Backend.
 
 ## Features
 1. JWT Secrets
