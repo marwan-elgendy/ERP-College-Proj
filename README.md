@@ -22,10 +22,10 @@ This Repo is for ASU GP Backend.
 
 1. Clone the Repository on your machine.
     ```
-    git clone https://github.com/marwan-elgendy/GP-Backend
+    git clone https://github.com/marwan-elgendy/ERP-Backend
     ```
     ```
-    cd GP-Backend
+    cd ERP-Backend
     ```
 2. Install project dependencies
     ```
