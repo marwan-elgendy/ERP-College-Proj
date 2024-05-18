@@ -2,12 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CityController;
-use App\Http\Controllers\TripController;
-use App\Http\Controllers\BusController;
-use App\Http\Controllers\BookingController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrganizationsController;
+use App\Http\Controllers\ProffesorController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +44,17 @@ Route::middleware('auth:api')->group(function(){
         Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     });
 
-    Route::group(['prefix' => 'preprocessing'], function () {
-        Route::post('', [PreProcessingController::class, 'store'])->name('preprocessing.store');
-    });
 });
+
+Route::group(['prefix' => 'upload'], function () {
+    Route::post('', [FileController::class, 'store'])->name('file.store');
+    Route::post('organizations', [OrganizationsController::class, 'store'])->name('organizations.store');
+    Route::post('proffesors', [ProffesorController::class, 'store'])->name('proffesors.store');
+    Route::post('subjects', [SubjectController::class, 'store'])->name('subjects.store');
+});
+
+Route::get('organizations', [OrganizationsController::class, 'index'])->name('organizations.index');
+Route::get('proffesors', [ProffesorController::class, 'index'])->name('proffesors.index');
+Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
+
 

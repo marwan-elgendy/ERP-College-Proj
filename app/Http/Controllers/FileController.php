@@ -11,17 +11,12 @@ class FileController extends Controller
     public function store(Request $request)
     {
         $file = $request->file('file');
-
-        # Send data to the pre-processing service and get the pre-processed data
-        $url = config('app.process_service_url') . '/preprocessing';
-        $response = Http::post($url, [
-            'file' => $file
-        ]);
-
-        # Create a new file record in the database
-
-        $file = new File();
-        $file->title = $request->title;
-        $file->preprocessed_data = $response->body();
+        $csv= file_get_contents($file);
+        $array = array_map('str_getcsv', explode(PHP_EOL, $csv));
+        $metadata = json_encode($array);
+        $fileRecord = new File();
+        $fileRecord->metadata = $metadata;
+        $fileRecord->save();
+        return response()->json(['message' => 'File uploaded successfully'], 200);
     }
 }
