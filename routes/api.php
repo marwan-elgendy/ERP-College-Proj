@@ -43,14 +43,13 @@ Route::middleware('auth:api')->group(function(){
         Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     });
 
+    Route::group(['prefix' => 'upload'], function () {
+        Route::post('proffesors', [ProffesorController::class, 'store'])->name('proffesors.store');
+        Route::post('subjects', [SubjectController::class, 'store'])->name('subjects.store');
+    });
+    
+    Route::get('proffesors', [ProffesorController::class, 'index'])->name('proffesors.index');
+    Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
+    
+    Route::get('report/{subject_id}', [ReportController::class, 'generate'])->name('report.index');
 });
-
-Route::group(['prefix' => 'upload'], function () {
-    Route::post('proffesors', [ProffesorController::class, 'store'])->name('proffesors.store');
-    Route::post('subjects', [SubjectController::class, 'store'])->name('subjects.store');
-});
-
-Route::get('proffesors', [ProffesorController::class, 'index'])->name('proffesors.index');
-Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
-
-Route::get('report/{subject_id}', [ReportController::class, 'generate'])->name('report.index');
