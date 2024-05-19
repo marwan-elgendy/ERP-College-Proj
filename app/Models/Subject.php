@@ -10,6 +10,7 @@ class Subject extends Model
     protected $connection = 'mongodb';
     protected $collection = 'subjects';
     protected $fillable = [
+        'subject_id', 
         'organization_name',
         'faculty_name',
         'education_year',

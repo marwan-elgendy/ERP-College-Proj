@@ -10,16 +10,16 @@ class SubjectsImport implements ToCollection
 {
     public function collection(Collection $rows)
     {
+        // Skip the first row
+        $rows->shift();
+        // Don't insert empty rows
+        $rows = $rows->filter(function($row){
+            return !empty($row[0]);
+        });
         foreach ($rows as $row)
         {
-            // Skip the first row
-            $rows->shift();
-            // Don't insert empty rows
-            $rows = $rows->filter(function($row){
-                return !empty($row[0]);
-            });
             Subject::create([
-                'id' => $row[0],
+                'subject_id' => $row[0],
                 'organization_name' => $row[1],
                 'faculty_name' => $row[2],
                 'education_year' => $row[3],
