@@ -2,12 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ProffesorController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,14 +46,11 @@ Route::middleware('auth:api')->group(function(){
 });
 
 Route::group(['prefix' => 'upload'], function () {
-    Route::post('', [FileController::class, 'store'])->name('file.store');
-    Route::post('organizations', [OrganizationsController::class, 'store'])->name('organizations.store');
     Route::post('proffesors', [ProffesorController::class, 'store'])->name('proffesors.store');
     Route::post('subjects', [SubjectController::class, 'store'])->name('subjects.store');
 });
 
-Route::get('organizations', [OrganizationsController::class, 'index'])->name('organizations.index');
 Route::get('proffesors', [ProffesorController::class, 'index'])->name('proffesors.index');
 Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
 
-
+Route::get('report/{subject_id}', [ReportController::class, 'generate'])->name('report.index');
