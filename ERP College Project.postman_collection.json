@@ -1,0 +1,978 @@
+{
+	"info": {
+		"_postman_id": "3bbfeff6-5a2c-4a25-9577-d92f2886448b",
+		"name": "ERP College Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33247037"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Marwan Elgendy\",\r\n    \"email\": \"marwanelgendy@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"marwanelgendy@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/refresh",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/user-profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"user-profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Uploads & Index",
+			"item": [
+				{
+					"name": "Subjects",
+					"item": [
+						{
+							"name": "Upload",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Thinkpad/Documents/Subject.csv"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/upload/subjects",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"upload",
+										"subjects"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Paginate",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "0.0.0.0:80/api/admin/buses?page=1",
+											"host": [
+												"0",
+												"0",
+												"0",
+												"0"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"admin",
+												"buses"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:06 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:06 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": 1,\n                \"bus_code\": \"BUS561\",\n                \"total_seats\": 12,\n                \"created_at\": \"2023-11-25 17:07:44\",\n                \"updated_at\": \"2023-11-25 17:07:44\"\n            },\n            {\n                \"id\": 2,\n                \"bus_code\": \"BUS980\",\n                \"total_seats\": 12,\n                \"created_at\": \"2023-11-25 17:07:44\",\n                \"updated_at\": \"2023-11-25 17:07:44\"\n            },\n            {\n                \"id\": 3,\n                \"bus_code\": \"BUS177\",\n                \"total_seats\": 12,\n                \"created_at\": \"2023-11-25 17:07:44\",\n                \"updated_at\": \"2023-11-25 17:07:44\"\n            }\n        ],\n        \"links\": {\n            \"first\": \"http://127.0.0.1:8000/api/admin/buses?page=1\",\n            \"last\": \"http://127.0.0.1:8000/api/admin/buses?page=4\",\n            \"prev\": null,\n            \"next\": \"http://127.0.0.1:8000/api/admin/buses?page=2\"\n        },\n        \"meta\": {\n            \"current_page\": 1,\n            \"from\": 1,\n            \"last_page\": 4,\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/admin/buses?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/admin/buses?page=2\",\n                    \"label\": \"2\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/admin/buses?page=3\",\n                    \"label\": \"3\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/admin/buses?page=4\",\n                    \"label\": \"4\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/admin/buses?page=2\",\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"path\": \"http://127.0.0.1:8000/api/admin/buses\",\n            \"per_page\": 3,\n            \"to\": 3,\n            \"total\": 10\n        }\n    }\n}"
+								},
+								{
+									"name": "Get Paginate",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "0.0.0.0:80/api/admin/buses?page=*",
+											"host": [
+												"0",
+												"0",
+												"0",
+												"0"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"admin",
+												"buses"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "*"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:22 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"bus_code\": \"BUS561\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 2,\n            \"bus_code\": \"BUS980\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 3,\n            \"bus_code\": \"BUS177\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 4,\n            \"bus_code\": \"BUS971\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 5,\n            \"bus_code\": \"BUS297\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 6,\n            \"bus_code\": \"BUS255\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 7,\n            \"bus_code\": \"BUS214\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 8,\n            \"bus_code\": \"BUS924\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 9,\n            \"bus_code\": \"BUS401\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 10,\n            \"bus_code\": \"BUS308\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/subjects",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"subjects"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Bus",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "0.0.0.0:80/api/admin/buses/1",
+											"host": [
+												"0",
+												"0",
+												"0",
+												"0"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"admin",
+												"buses",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 18:24:01 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 18:24:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"bus_code\": \"BUS561\",\n        \"total_seats\": 12,\n        \"created_at\": \"2023-11-25 17:07:44\",\n        \"updated_at\": \"2023-11-25 17:07:44\"\n    }\n}"
+								},
+								{
+									"name": "Get Bus Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "0.0.0.0:80/api/admin/buses/12",
+											"host": [
+												"0",
+												"0",
+												"0",
+												"0"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"admin",
+												"buses",
+												"12"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:49 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "57"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"message\": \"Sorry, bus not found\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Proffesors",
+					"item": [
+						{
+							"name": "Upload",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Thinkpad/Documents/Proffesors.xlsx"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/upload/proffesors",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"upload",
+										"proffesors"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Paginate",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "0.0.0.0:80/api/admin/buses?page=1",
+											"host": [
+												"0",
+												"0",
+												"0",
+												"0"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"admin",
+												"buses"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:06 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:06 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": 1,\n                \"bus_code\": \"BUS561\",\n                \"total_seats\": 12,\n                \"created_at\": \"2023-11-25 17:07:44\",\n                \"updated_at\": \"2023-11-25 17:07:44\"\n            },\n            {\n                \"id\": 2,\n                \"bus_code\": \"BUS980\",\n                \"total_seats\": 12,\n                \"created_at\": \"2023-11-25 17:07:44\",\n                \"updated_at\": \"2023-11-25 17:07:44\"\n            },\n            {\n                \"id\": 3,\n                \"bus_code\": \"BUS177\",\n                \"total_seats\": 12,\n                \"created_at\": \"2023-11-25 17:07:44\",\n                \"updated_at\": \"2023-11-25 17:07:44\"\n            }\n        ],\n        \"links\": {\n            \"first\": \"http://127.0.0.1:8000/api/admin/buses?page=1\",\n            \"last\": \"http://127.0.0.1:8000/api/admin/buses?page=4\",\n            \"prev\": null,\n            \"next\": \"http://127.0.0.1:8000/api/admin/buses?page=2\"\n        },\n        \"meta\": {\n            \"current_page\": 1,\n            \"from\": 1,\n            \"last_page\": 4,\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/admin/buses?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/admin/buses?page=2\",\n                    \"label\": \"2\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/admin/buses?page=3\",\n                    \"label\": \"3\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/admin/buses?page=4\",\n                    \"label\": \"4\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/admin/buses?page=2\",\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"path\": \"http://127.0.0.1:8000/api/admin/buses\",\n            \"per_page\": 3,\n            \"to\": 3,\n            \"total\": 10\n        }\n    }\n}"
+								},
+								{
+									"name": "Get Paginate",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "0.0.0.0:80/api/admin/buses?page=*",
+											"host": [
+												"0",
+												"0",
+												"0",
+												"0"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"admin",
+												"buses"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "*"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:22 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"bus_code\": \"BUS561\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 2,\n            \"bus_code\": \"BUS980\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 3,\n            \"bus_code\": \"BUS177\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 4,\n            \"bus_code\": \"BUS971\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 5,\n            \"bus_code\": \"BUS297\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 6,\n            \"bus_code\": \"BUS255\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 7,\n            \"bus_code\": \"BUS214\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 8,\n            \"bus_code\": \"BUS924\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 9,\n            \"bus_code\": \"BUS401\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        },\n        {\n            \"id\": 10,\n            \"bus_code\": \"BUS308\",\n            \"total_seats\": 12,\n            \"created_at\": \"2023-11-25 17:07:44\",\n            \"updated_at\": \"2023-11-25 17:07:44\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/proffesors",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"proffesors"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Bus",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "0.0.0.0:80/api/admin/buses/1",
+											"host": [
+												"0",
+												"0",
+												"0",
+												"0"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"admin",
+												"buses",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 18:24:01 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 18:24:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"bus_code\": \"BUS561\",\n        \"total_seats\": 12,\n        \"created_at\": \"2023-11-25 17:07:44\",\n        \"updated_at\": \"2023-11-25 17:07:44\"\n    }\n}"
+								},
+								{
+									"name": "Get Bus Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "0.0.0.0:80/api/admin/buses/12",
+											"host": [
+												"0",
+												"0",
+												"0",
+												"0"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"admin",
+												"buses",
+												"12"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:49 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 25 Nov 2023 19:22:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "57"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"message\": \"Sorry, bus not found\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/report/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"report",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MTYxNTUyNzEsImV4cCI6MTcxNjE1ODg3MSwibmJmIjoxNzE2MTU1MjcxLCJqdGkiOiJUT3N0RzlINzFxVjdHREdtIiwic3ViIjoiNjY0YTczNzIyOTdmZmZkZjVjMDhhOGIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.LWsFbM2NX5EaE4ibQVAXnWjt_4Fqz-mr4RpxQwNLR_8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bearer_token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MDA4NjM2NzYsImV4cCI6MTcwMDg2NzI3NiwibmJmIjoxNzAwODYzNjc2LCJqdGkiOiJ3aHBHYnVsbTUzRks5S2V1Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.QtuYoivy5FWG9fDg_J64eOqi0ORp8Ueerj-tPbNXJYk"
+		}
+	]
+}
