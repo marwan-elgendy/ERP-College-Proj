@@ -10,6 +10,7 @@ class Proffesor extends Model
     protected $connection = 'mongodb';
     protected $collection = 'proffesors';
     protected $fillable = [
+        'proffesor_id',
         'name',
         'subject_id',
         'mobile_number',

@@ -19,7 +19,7 @@ class ProffesorImport implements ToCollection
         foreach ($rows as $row)
         {
             Proffesor::create([
-                'id' => $row[0],
+                'proffesor_id' => $row[0],
                 'subject_id' => $row[1],
                 'name' => $row[2],
                 'mobile_number' => $row[3],

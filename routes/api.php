@@ -51,5 +51,5 @@ Route::middleware('auth:api')->group(function(){
     Route::get('proffesors', [ProffesorController::class, 'index'])->name('proffesors.index');
     Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
     
-    Route::get('report/{subject_id}', [ReportController::class, 'generate'])->name('report.index');
+    Route::get('report/{proffesor_id}', [ReportController::class, 'generate'])->name('report.index');
 });
